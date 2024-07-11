@@ -38,6 +38,39 @@ function App() {
     };
   }, []);
 
+  function handleClick(id) {
+    for (const card of cards) {
+      if (id === card.id) {
+        if (card.clicked) {
+          const newBestScore =
+            gameState.score > gameState.bestScore
+              ? gameState.score
+              : gameState.bestScore;
+
+          setGameState({
+            bestScore: newBestScore,
+            score: 0,
+          });
+          setCards(
+            cards.map((card) => {
+              return { ...card, clicked: false };
+            }),
+          );
+        } else {
+          setGameState({ ...gameState, score: gameState.score + 1 });
+          setCards(
+            cards.map((card) => {
+              if (id === card.id) return { ...card, clicked: true };
+              return { ...card };
+            }),
+          );
+        }
+
+        break;
+      }
+    }
+  }
+
   return (
     <>
       <header>
@@ -54,7 +87,12 @@ function App() {
           ) : (
             cards.map((card) => {
               return (
-                <button key={card.id}>
+                <button
+                  key={card.id}
+                  onClick={() => {
+                    handleClick(card.id);
+                  }}
+                >
                   <img src={card.url} alt="" />
                   <p>{card.name[0].toUpperCase() + card.name.slice(1)}</p>
                 </button>

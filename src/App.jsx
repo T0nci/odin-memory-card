@@ -74,27 +74,32 @@ function App() {
   return (
     <>
       <header>
-        <h1>Memory Card game</h1>
-        <p>Best Score: {gameState.bestScore}</p>
+        <h1 className="big-text bold center-text">Memory Card game</h1>
+        <p className="medium-text center-text">
+          Best Score: {gameState.bestScore}
+        </p>
       </header>
       <main>
-        <p>Score: {gameState.score}</p>
+        <p className="medium-text center-text">Score: {gameState.score}</p>
         <section className="cards">
           {typeof cards === "string" ? (
-            <p>{cards}</p>
+            <p className="error">{cards}</p>
           ) : cards.length <= 0 ? (
-            <p>Loading...</p>
+            <p className="loading">Loading...</p>
           ) : (
             shuffleCards(cards).map((card) => {
               return (
                 <button
+                  className="card"
                   key={card.id}
                   onClick={() => {
                     handleClick(card.id);
                   }}
                 >
                   <img src={card.url} alt="" />
-                  <p>{card.name[0].toUpperCase() + card.name.slice(1)}</p>
+                  <p className="small-medium-text center-text">
+                    {card.name[0].toUpperCase() + card.name.slice(1)}
+                  </p>
                 </button>
               );
             })

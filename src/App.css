@@ -148,3 +148,74 @@ meter {
   box-sizing: border-box;
 }
 /* End Custom Reset */
+
+header {
+  background-color: var(--header-background);
+  padding: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.big-text {
+  font-size: 2rem;
+}
+
+.medium-text {
+  font-size: 1.5rem;
+}
+
+.small-medium-text {
+  font-size: 1.25rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.center-text {
+  text-align: center;
+}
+
+main {
+  padding: 2rem;
+}
+
+main > :first-child {
+  margin-bottom: 1rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background-color: var(--header-background);
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  background-color: var(--card-hover);
+}
+
+.card:active {
+  background-color: var(--card-active);
+}
+
+.card > img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+  }
+}

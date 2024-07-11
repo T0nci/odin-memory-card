@@ -1,0 +1,17 @@
+:root {
+  --header-background: #cccccc;
+  --body-background: #f0f0f0;
+  --card-hover: #b6b6b6;
+  --card-active: #a8a8a8;
+}
+
+div#root {
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: var(--body-background);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}

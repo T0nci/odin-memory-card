@@ -31,7 +31,7 @@ function shuffleCards(cardsArr) {
     const randomCard = nonShuffled.splice(
       Math.floor(Math.random() * nonShuffled.length),
       1,
-    );
+    )[0];
 
     shuffled.push({ ...randomCard });
   }

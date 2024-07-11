@@ -23,4 +23,19 @@ function fetchCards(numberOfCards = 12) {
   return Promise.all(promisesArray);
 }
 
-export { fetchCards };
+function shuffleCards(cardsArr) {
+  const shuffled = [];
+
+  while (cardsArr.length > 0) {
+    const randomCard = cardsArr.splice(
+      Math.floor(Math.random() * cardsArr.length),
+      1,
+    );
+
+    shuffled.push(randomCard);
+  }
+
+  return shuffled;
+}
+
+export { fetchCards, shuffleCards };

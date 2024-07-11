@@ -24,15 +24,16 @@ function fetchCards(numberOfCards = 12) {
 }
 
 function shuffleCards(cardsArr) {
+  const nonShuffled = cardsArr.slice();
   const shuffled = [];
 
-  while (cardsArr.length > 0) {
-    const randomCard = cardsArr.splice(
-      Math.floor(Math.random() * cardsArr.length),
+  while (nonShuffled.length > 0) {
+    const randomCard = nonShuffled.splice(
+      Math.floor(Math.random() * nonShuffled.length),
       1,
     );
 
-    shuffled.push(randomCard);
+    shuffled.push({ ...randomCard });
   }
 
   return shuffled;

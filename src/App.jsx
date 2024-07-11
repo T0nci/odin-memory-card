@@ -1,5 +1,5 @@
 import "./App.css";
-import { fetchCards } from "./helpers.js";
+import { fetchCards, shuffleCards } from "./helpers.js";
 import { v4 as uuidV4 } from "uuid";
 import { useEffect, useState } from "react";
 
@@ -85,7 +85,7 @@ function App() {
           ) : cards.length <= 0 ? (
             <p>Loading...</p>
           ) : (
-            cards.map((card) => {
+            shuffleCards(cards).map((card) => {
               return (
                 <button
                   key={card.id}
